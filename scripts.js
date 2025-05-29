@@ -15,7 +15,7 @@ form.addEventListener('submit', event => {
 
 /* Função para buscar as receitas no input */
 async function searchRecipes(ingredient) {
-  recipeDetails.innerHTML = `<p>Carregndo produtos</p>`
+  recipeDetails.innerHTML = `<p>Loading products</p>`
 
   try {
     const response = await fetch(
@@ -25,7 +25,7 @@ async function searchRecipes(ingredient) {
     const data = await response.json()
     showRecipes(data.meals)
   } catch (error) {
-    recipesList.innerHTML = `<h1 class="catchMensage">Produto inexistente ou indisponivel</h1>`
+    recipesList.innerHTML = `<h1 class="catchMensage">No recipes found</h1>`
   }
 
   recipeDetails.innerHTML = ''
